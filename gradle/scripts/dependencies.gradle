@@ -25,6 +25,19 @@ repositories {
             includeGroup 'maven.modrinth'
         }
     }
+    exclusiveContent {
+        forRepository {
+            maven {
+                url 'https://maven.blamejared.com'
+
+            }
+        }
+        filter {
+            includeGroup("CraftTweaker2")
+            includeGroup("com.blamejared.crafttweaker")
+            includeGroup("org.openzen.zencode")
+        }
+    }
     mavenLocal() // Must be last for caching to work
 }
 
@@ -33,6 +46,12 @@ dependencies {
     runtimeOnly 'com.cleanroommc:strip-latest-forge-requirements:1.0'
     // Include OSXNarratorBlocker by default for the dev env, for M1+ Macs
     runtimeOnly 'com.cleanroommc:osxnarratorblocker:1.0'
+
+    runtimeOnly rfg.deobf("curse.maven:zenutils-401178:7234972")
+
+    implementation(rfg.deobf("CraftTweaker2:CraftTweaker2-API:${crafttweaker_version}"))
+    implementation(rfg.deobf("CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-${crafttweaker_version}"))
+    implementation(rfg.deobf("CraftTweaker2:ZenScript:${crafttweaker_version}"))
 
     // Example - Dependency descriptor:
     // 'com.google.code.gson:gson:2.8.6' << group: com.google.code.gson, name:gson, version:2.8.6
