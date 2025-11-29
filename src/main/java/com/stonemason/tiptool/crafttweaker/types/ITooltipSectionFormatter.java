@@ -7,5 +7,7 @@ import stanhebben.zenscript.annotations.ZenClass;
 @ZenRegister
 @ZenClass("mods.tiptool.ITooltipSectionFormatter")
 public interface ITooltipSectionFormatter {
-    IFormattedText format();
+    ITooltipSectionFormatter empty = (lines) -> lines;
+
+    IFormattedText[] format(IFormattedText[] lines);
 }
