@@ -72,6 +72,22 @@ public class TooltipSection {
         return this;
     }
 
+    @ZenMethod
+    public TooltipSection maskWhenNotShifted(@Optional ITooltipSectionFormatter formatter) {
+        if (formatter == null) {
+            formatter = ITooltipSectionFormatter.empty;
+        }
+
+        setFormatterUnshifted(formatter);
+
+        return this;
+    }
+
+    @ZenMethod
+    public IFormattedText translate(String key) {
+        return new TranslationFormattedString(LangResourceReloader.tooltipKey(this.id, key));
+    }
+
     protected ModifiedTooltipSectionFormatter getModifiedFormatter() {
         if (!(formatter instanceof ModifiedTooltipSectionFormatter)) {
             formatter = new ModifiedTooltipSectionFormatter(formatter);

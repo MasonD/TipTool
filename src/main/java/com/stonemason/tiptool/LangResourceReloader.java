@@ -58,12 +58,12 @@ public class LangResourceReloader implements ISelectiveResourceReloadListener {
 
         Map<String, String> map = new HashMap<>();
 
-        File file = new File("scripts/" + prefix + ".en_us.lang.yml");
+        File file = new File("scripts/" + prefix + "/en_us.lang.yml");
 
         tryLoadFile(load, file, map);
 
         if (!newLang.equals("en_us")) {
-            file = new File("scripts/" + prefix + "." + newLang + ".lang.yml");
+            file = new File("scripts/" + prefix + "/" + newLang + ".lang.yml");
 
             tryLoadFile(load, file, map);
         }

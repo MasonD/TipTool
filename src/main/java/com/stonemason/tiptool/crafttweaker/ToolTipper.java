@@ -39,7 +39,7 @@ public class ToolTipper {
         if (sections.stream().anyMatch(section -> section.getId().equals(id))) {
             throw new IllegalArgumentException("A tooltip section with the id " + id + " already exists!");
         }
-        TooltipSection section = new TooltipSection(id, formatter != null ? formatter : ITooltipSectionFormatter.empty);
+        TooltipSection section = new TooltipSection(id, formatter != null ? formatter : ITooltipSectionFormatter.identity);
         sections.add(section);
         return section;
     }
