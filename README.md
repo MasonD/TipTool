@@ -4,7 +4,7 @@ Minecraft 1.12.2 CraftTweaker addon to simplify adding translated item tooltips 
 
 ### Instructions:
 
-
+First, define tooltip sections and their formatting with
 ```zenscript
 import mods.tiptool.TipTool;
 
